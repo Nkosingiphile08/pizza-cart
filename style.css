@@ -1,0 +1,122 @@
+.body {
+    background-color:antiquewhite;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+ .your_perfect_pizza {
+    text-align: center;
+ }
+
+.pizza {
+    border: 5px solid peru;
+    padding: 1em;
+    margin: 1em;
+    margin-bottom: 2em;
+    border-radius: 0.5em;
+    width: 20em;
+    display: inline-block;
+    min-height: 5em;
+    text-align: center;
+
+}
+
+inline-block {
+    width: 20em;
+    display: inline-block;
+    min-height: 10em;
+}
+
+.Shopping_cart{
+    background-color:bisque;
+    border-radius: 1em;
+    flex: 1;
+    align-items: center;
+    justify-content: center; 
+} 
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pizza-price {
+  text-align: right;
+}
+
+.small_pizza {
+    background-color: burlywood;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.medium_pizza {
+    background-color: burlywood;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.large_pizza {
+    background-color: burlywood;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact_us {
+    background-color: bisque;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 1em;
+    display: flex;
+}
+
+.address {
+    background-color: bisque;
+    text-align: right;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 1em;
+    width: 40%;
+}
+
+.contact {
+    background-color:bisque;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 1em;
+    width: 60%;
+
+}
+
+.special {
+    background-color: black;
+    color: white;
+    margin: 5em;
+}
+
+@media (mini-width: 760px) {
+
+    body {
+        background-color: whitesmoke;
+    }
+
+    .large_pizza {
+        background-color: #E15634;
+        flex: 3;
+    }
+}
+
+
+@media (mini-width: 960px) {
+
+    body {
+        background-color: aliceblue;
+    }
+
+    .pizzas {
+        display: flex;
+    }
+}
