@@ -20,7 +20,7 @@
             <h2>"Welcome! We're delighted to have you as our valued customer."</h2>
             <h1>Make your pizza Order below:</h1>
         </div>
-
+<div id="box"></div>
         <div class="Shopping_cart">
             <div class="Shopping cart">
                 <h1>Shopping cart</h1>
@@ -70,48 +70,51 @@
                     </template>
 
                     <span><b>Grand total: R</b><span class="Shopping_cart"
-                            x-text="((small * 54.00) + (medium * 78.00) + (large * 120.00)).toFixed(2)"></span></span>
+                            x-text="((small * 54.00) + (medium * 78.00) + (large * 120.00)).toFixed(2)"></span>
 
-                    <template x-if="!checkout">
-                        <button class="Shopping_cart" @click="checkout = true">Checkout</button>
-                    </template>
+                        <template x-if="!checkout">
+                            <button class="Shopping_cart" @click="checkout = true">Checkout</button>
+                        </template>
 
-                    <template x-if="checkout">
-                        <label>Amount received from customer: R<input type="number" min="0" step="0.01"
-                                x-model="paid" /></label>
-                    </template>
-
-                    <template x-if="paid == total && checkout">
-                        <div style="color: rgb(19, 208, 25)">Thank you-Enjoy your pizzas!</div>
-                        <button class="Mdesign AW Bdesign"
-                            @click="small = 0; medium = 0; large = 0; checkout = false; paid = '';">
-                            Complete Order
-                        </button>
-                    </template>
-
-                    <template x-if="(parseInt(paid) < total && paid != total && checkout)">
-                        <div style="border: 1px solid rgb(204, 3, 3); color: #e70909;">
-                            <h2><b>Sorry-insufficient funds..</b></h2>
-                            <button class="Shopping_cart"
-                                @click="small=0; medium=0; large=0; checkout=false; hideErrorMessage()"></button>
+                        <template x-if="checkout">
+                            <label>Amount received from customer: R<input type="number" min="0" step="0.01"
+                                    x-model="paid" /></label>
+                        </template>
+                        <div>
+                            <template x-if="paid == total && checkout">
+                                <div style="color: rgb(19, 208, 25)">Thank you-Enjoy your pizzas!</div>
+                                <button class="Mdesign AW Bdesign"
+                                    @click="small = 0; medium = 0; large = 0; checkout = false; paid = '';">
+                                    Complete Order
+                                </button>
+                            </template>
+                            <template x-if="(parseInt(paid) < total && paid != total && checkout)">
+                                <div x-data="{ showError: true }" x-show="showError" x-init="setTimeout(() => { showError = false; }, 5000)" style="border: 1px solid rgb(204, 3, 3); color: #e70909;">
+                                  <h2><b>Sorry-insufficient funds..</b></h2>
+                                  <button class="Shopping_cart" @click="showError = false"></button>
+                                </div>
+                              </template>
+                              
                         </div>
+
                         <button class="Shopping_cart"
                             @click="small = 0; medium = 0; large = 0; checkout = false; paid = '';">
                             Exit Cart
                         </button>
-                    </template>
 
-                    <template x-if="parseInt(paid) > total && checkout">
-                        <div style="color: rgb(29, 126, 12)">
-                            <br>
-                            <b>Thank you-Enjoy your pizza! Here's your change: R</b><span
-                                x-text="(parseInt(paid) - total).toFixed(2)"></span>
-                        </div>
-                        <button class="Shopping_cart"
-                            @click="small = 0; medium = 0; large = 0; checkout = false; paid = '';">
-                            Complete the Order
-                        </button>
-                    </template>
+                        </template>
+
+                        <template x-if="parseInt(paid) > total && checkout">
+                            <div style="color: rgb(29, 126, 12)">
+                                <br>
+                                <b>Thank you-Enjoy your pizza! Here's your change: R</b><span
+                                    x-text="(parseInt(paid) - total).toFixed(2)"></span>
+                            </div>
+                            <button class="Shopping_cart"
+                                @click="small = 0; medium = 0; large = 0; checkout = false; paid = '';">
+                                Complete the Order
+                            </button>
+                        </template>
                 </div>
             </div>
         </div>
@@ -120,7 +123,8 @@
 
             <div class="pizzas" style="text-align: center;">
                 <div class="pizza small_pizza">
-                    <img src="pizza (2).png" width="60%">
+                    <center><img src="pizza (2).png" width="60%"></center>
+
                     <h2>Small Pizza</h2>
                     <h3>R54.00</h3>
                     <ul>
@@ -130,21 +134,18 @@
                     </ul>
                     <br>
                     <div x-data="{ count: 0 }">
-                        <button class="Mdesign W Bdesign" @click="count++; small++">BUY</button>
+                        <button class="Mdesign W Bdesign" @click="count++; small++;document.getElementById('box').scrollIntoView()">BUY</button>
                         <span x-text="count"></span>
-                        <button @click="itemCount++">Add to Cart</button>
-                        <button @click="itemCount--">Remove from Cart</button>
+
                     </div>
                 </div>
-
-                <!-- Add more pizza items as needed -->
 
             </div>
 
             <br>
 
             <div class="pizza medium_pizza">
-                <img src="pizza (2).png" width="60%">
+                <center><img src="pizza (2).png" width="60%"></center>
                 <h2>Medium Pizza</h2>
                 <h3>R78.00</h3>
                 <ul>
@@ -155,14 +156,15 @@
                 <div>
                     <br>
                     <div x-data="{ count: 0 }">
-                        <button class="Mdesign W Bdesign" @click="count++; medium++">BUY</button>
+                        <button class="Mdesign W Bdesign" @click="count++; medium++;document.getElementById('box').scrollIntoView()">BUY</button>
                         <span x-text="count"></span>
                     </div>
                 </div>
                 <br>
             </div>
             <div class="pizza large_pizza">
-                <img src="pizza (2).png" width="60%">
+                <center><img src="pizza (2).png" width="60%"></center>
+
                 <h2>Large Pizza</h2>
                 <h3>R120.00</h3>
                 <ul>
@@ -172,7 +174,7 @@
                 </ul>
                 <br>
                 <div x-data="{ count: 0 }">
-                    <button class="Mdesign W Bdesign" @click="count++; large++">BUY</button>
+                    <button class="Mdesign W Bdesign" @click="count++; large++;document.getElementById('box').scrollIntoView()">BUY</button>
                     <span x-text="count"></span>
                 </div>
             </div>
@@ -203,10 +205,6 @@
                 17 Henley Road, Auckland Park, Johannesburg, 2092.
             </div>
         </div>
-    </div>
-
-
-
     </div>
 </body>
 

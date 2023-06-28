@@ -8,6 +8,21 @@
     width: 100;
 
 }
+body{
+    font-size: 20px;
+}
+button{
+    font-size: 20px;
+    background-color: rgb(30, 164, 0);
+    color: white;
+    border:none;
+    border-radius: 1em;
+    font-weight: bold;
+    padding: .5em;
+}
+ul li{
+    font-size: 20px;
+}
 
  .Your_Perfect_Pizza {
     text-align: center;
