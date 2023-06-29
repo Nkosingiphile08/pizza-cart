@@ -9,12 +9,12 @@
 
 }
 body{
-    font-size: 20px;
+    font-size: 16px;
 }
 button{
-    font-size: 20px;
+    font-size: 16px;
     background-color: rgb(30, 164, 0);
-    color: white;
+    color: brown;
     border:none;
     border-radius: 1em;
     font-weight: bold;
@@ -93,7 +93,7 @@ ul li{
 }
 
 
-@media (mini-width: 960px) {
+@media (min-width: 960px) {
 
     .pizzas {
         display: flex;
